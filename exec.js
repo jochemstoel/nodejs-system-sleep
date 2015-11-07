@@ -1,0 +1,1 @@
+setTimeout(function() { return true; }, require('process').argv[2]);

@@ -1,0 +1,24 @@
+{
+  "name": "system-sleep",
+  "version": "1.0.0f",
+  "description": "A real system sleep() for Node. Works on every platform.",
+  "main": "module.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jochemstoel/nodejs-system-sleep.git"
+  },
+  "homepage": "https://github.com/jochemstoel/nodejs-system-sleep",
+  "bugs": {
+    "url": "https://github.com/jochemstoel/nodejs-system-sleep/issues"
+  },
+  "_npmUser": {
+    "name": "jochemstoel",
+    "email": "jochemstoel@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "jochemstoel",
+      "email": "jochemstoel@gmail.com"
+    }
+  ]
+}
