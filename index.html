@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Node.js Sleep() by jochemstoel</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Node.js Sleep()</h1>
+        <p>Sleep function for Node.js All platforms.</p>
+
+        <p class="view"><a href="https://github.com/jochemstoel/nodejs-system-sleep">View the Project on GitHub <small>jochemstoel/nodejs-system-sleep</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/jochemstoel/nodejs-system-sleep/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/jochemstoel/nodejs-system-sleep/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/jochemstoel/nodejs-system-sleep">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="sleep" class="anchor" href="#sleep" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sleep()</h1>
+
+<p>for those who need Sleep() just like me.</p>
+
+<pre><code> @package system-sleep
+ @version 1.0
+ @author Jochem Stoel (http://jochemstoel.github.io)
+ @license don't involve me
+</code></pre>
+
+<ul>
+<li>will make the system wait xxx milliseconds.</li>
+<li>can be used to delay script execution.</li>
+<li>is often used to relax the system in between resource intensive tasks.</li>
+<li>requires Node to be installed (using portable binary? pfff, see end of document)</li>
+<li>asynchronously executes child process (Node) </li>
+<li><p>works on every platform x86 + x64 Windows / Linux / OSX</p></li>
+<li><p>Existing sleep() solutions use a blocking while loop which uses 100% CPU. This is incredibly stupid.</p></li>
+<li>Also, many sleep() solutions are only for Windows or only for Linux.</li>
+</ul>
+
+<h3>
+<a id="install-using-npm" class="anchor" href="#install-using-npm" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install using NPM</h3>
+
+<div class="highlight highlight-source-shell"><pre>npm install system-sleep</pre></div>
+
+<h3>
+<a id="use" class="anchor" href="#use" aria-hidden="true"><span class="octicon octicon-link"></span></a>Use</h3>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> sleep <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>system-sleep<span class="pl-pds">'</span></span>);
+<span class="pl-en">sleep</span>(<span class="pl-c1">5000</span>); <span class="pl-c">// 5 seconds</span></pre></div>
+
+<h3>
+<a id="test" class="anchor" href="#test" aria-hidden="true"><span class="octicon octicon-link"></span></a>Test</h3>
+
+<p>Prints <i>variable y</i> to the console every 1 second during 10 seconds.</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> sleep <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>system-sleep<span class="pl-pds">'</span></span>);
+<span class="pl-k">for</span> (y <span class="pl-k">=</span> <span class="pl-c1">0</span>; y <span class="pl-k">&lt;</span> <span class="pl-c1">10</span>; y<span class="pl-k">++</span>) {
+    <span class="pl-en">console</span>.<span class="pl-c1">log</span>(y);
+    <span class="pl-en">sleep</span>(<span class="pl-c1">1000</span>);
+}</pre></div>
+
+<h2>
+<a id="using-portable-node" class="anchor" href="#using-portable-node" aria-hidden="true"><span class="octicon octicon-link"></span></a>Using portable Node?</h2>
+
+<p>Module <a href="https://www.npmjs.com/package/system-sleep">system-sleep</a> executes Node process from (any) current directory. This means it assumes you can run "node yourscript.js" from any directory you want. If you are using a portable binary of Node (Node.exe can only be run from your custom location) then modify module.js by replacing <b>node</b> with the <b>full path</b> to node.</p>
+
+<ul>
+<li>Open node_modules\system-sleep\module.js</li>
+<li>Replace <i>node</i> with <i>your-node-directory/node</i>
+</li>
+</ul>
+
+<p>If your portable Node.exe is located in c:/my-app/nodejs/   then change this</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">return</span> <span class="pl-c1">exec</span>(<span class="pl-s"><span class="pl-pds">'</span>node "<span class="pl-pds">'</span></span> <span class="pl-k">+</span> <span class="pl-c1">__dirname</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>/exec.js" <span class="pl-pds">'</span></span> <span class="pl-k">+</span> $delay);</pre></div>
+
+<p>into this</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">return</span> <span class="pl-c1">exec</span>(<span class="pl-s"><span class="pl-pds">'</span>c:/my-app/nodejs/node.exe "<span class="pl-pds">'</span></span> <span class="pl-k">+</span> <span class="pl-c1">__dirname</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span>/exec.js" <span class="pl-pds">'</span></span> <span class="pl-k">+</span> $delay);</pre></div>
+
+<p><img alt="Jochem Stoel" src="http://33.media.tumblr.com/avatar_048a728a1488_128.png"></p>
+
+<h3>
+<a id="jochem-stoel" class="anchor" href="#jochem-stoel" aria-hidden="true"><span class="octicon octicon-link"></span></a>Jochem Stoel</h3>
+
+<p>Involuntary public figure.</p>
+
+<ul>
+<li>
+<a href="https://www.npmjs.com/~jochemstoel"></a><a href="https://www.npmjs.com/%7Ejochemstoel">https://www.npmjs.com/~jochemstoel</a>
+</li>
+<li>
+<a href="http://jochemstoel.nl/"></a><a href="http://jochemstoel.nl/">http://jochemstoel.nl/</a>
+</li>
+<li>
+<a href="http://jochemstoel.github.io/"></a><a href="http://jochemstoel.github.io/">http://jochemstoel.github.io/</a>
+</li>
+<li>
+<a href="http://jochemstoel.tumblr.com/"></a><a href="http://jochemstoel.tumblr.com/">http://jochemstoel.tumblr.com/</a>
+</li>
+</ul>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/jochemstoel">jochemstoel</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
