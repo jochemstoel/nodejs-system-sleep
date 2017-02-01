@@ -5,8 +5,13 @@
  * @author Jochem Stoel (http://jochemstoel.github.io)
  * @license don't involve me
  */
-
-module.exports = function ($delay) {
-	var exec = require('child_process').execSync;
-	return exec('node "' + __dirname + '/exec.js" ' + $delay);
-};
+const sleep = interval => new Promise((deliver, renege) => {
+	try {
+		setTimeout(()=>{
+			deliver(new Date().getTime())
+		}, interval)
+	} catch (exception) {
+		renege(exception.message)
+	}
+})
+module.exports = interval => require('deasync-promise')(sleep(interval))

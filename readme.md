@@ -1,16 +1,20 @@
-# Sleep()
+# Node.js Sleep()
 for those who need Sleep() just like me.
+
+![Sleeping Beauty](https://68.media.tumblr.com/02cbcb04de3577bc89ef3c98fdbc94ab/tumblr_oknt65m0Iv1ru9jhqo1_1280.jpg)
+
+*31 january 2017 | UPDATE: NO LONGER REQUIRES CHILD PROCESS, using deasync instead.*
+
 ```
  @package system-sleep
- @version 1.0
+ @version 1.2
  @author Jochem Stoel (http://jochemstoel.github.io)
  @license don't involve me
  ```
+
 * will make the system wait xxx milliseconds.
 * can be used to delay script execution.
 * is often used to relax the system in between resource intensive tasks.
-* requires Node to be installed (using portable binary? pfff, see end of document)
-* asynchronously executes child process (Node) 
 * works on every platform x86 + x64 Windows / Linux / OSX
 
 
@@ -36,21 +40,6 @@ for (y = 0; y < 10; y++) {
 	sleep(1000);
 }
 ```
-## Using portable Node?
-Module <a href="https://www.npmjs.com/package/system-sleep">system-sleep</a> executes Node process from (any) current directory. This means it assumes you can run "node yourscript.js" from any directory you want. If you are using a portable binary of Node (Node.exe can only be run from your custom location) then modify module.js by replacing <b>node</b> with the <b>full path</b> to node.
-
-* Open node_modules\system-sleep\module.js
-* Replace <i><a>node</a></i> with <i><a>your-node-directory/node</a></i>
-
-If your portable Node.exe is located in c:/my-app/nodejs/   then change this
-```javascript
-return exec('node "' + __dirname + '/exec.js" ' + $delay);
-```
-into this
-```javascript
-return exec('c:/my-app/nodejs/node.exe "' + __dirname + '/exec.js" ' + $delay);
-```
-
 
 <img alt="Jochem Stoel" src="http://33.media.tumblr.com/avatar_048a728a1488_128.png" style="float: left;">
 ### Jochem Stoel

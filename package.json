@@ -1,7 +1,7 @@
 {
   "name": "system-sleep",
-  "version": "1.0.0f",
-  "description": "A real system sleep() for Node. Works on every platform.",
+  "version": "1.2.0",
+  "description": "A real and better system sleep() for Node. Works on every platform.",
   "main": "module.js",
   "repository": {
     "type": "git",
