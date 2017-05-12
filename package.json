@@ -1,6 +1,6 @@
 {
   "name": "system-sleep",
-  "version": "1.3.0",
+  "version": "1.3.5",
   "description": "A real and better system sleep() for Node. Works on every platform.",
   "main": "module.js",
   "dependencies": {

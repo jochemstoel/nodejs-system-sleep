@@ -42,9 +42,3 @@ for (y = 0; y < 10; y++) {
 ```
 
 <img alt="Jochem Stoel" src="http://33.media.tumblr.com/avatar_048a728a1488_128.png" style="float: left;">
-### Jochem Stoel
-Involuntary public figure.
-* <a href="https://www.npmjs.com/~jochemstoel">https://www.npmjs.com/~jochemstoel</a>
-* <a href="http://jochemstoel.nl/">http://jochemstoel.nl/</a>
-* <a href="http://jochemstoel.github.io/">http://jochemstoel.github.io/</a>
-* <a href="http://jochemstoel.tumblr.com/">http://jochemstoel.tumblr.com/</a>
