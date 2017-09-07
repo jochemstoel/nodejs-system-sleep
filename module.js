@@ -8,7 +8,7 @@
 
 const sleep = interval => new Promise((deliver, renege) => {
 	try {
-		setTimeout(()=>{
+		setTimeout(() => {
 			deliver(
 				new Date().getTime()
 			)
@@ -26,7 +26,7 @@ module.exports = interval => {
 		)
 	} catch (notAsync) { /* https://github.com/jochemstoel/nodejs-system-sleep/issues/4 */
 		require('child_process').execSync(
-			process.execPath + " -e \"setTimeout(function () { return true; }, " + interval + ");\""
+			`"${process.execPath}"` + " -e \"setTimeout(function () { return true; }, " + interval + ");\""
 		)
 		return null
 	}
